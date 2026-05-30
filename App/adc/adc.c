@@ -30,7 +30,6 @@ void adc_init(void)
     adc_interrupt_enable(ADC0, ADC_INT_EOIC);
     nvic_irq_enable(ADC_IRQn, ADC_IRQ_PRIORITY, 0U);
 
-    // power up and calibrate
     adc_enable(ADC0);
      for (volatile uint32_t i = 0; i < 1000U; i++) {
     }

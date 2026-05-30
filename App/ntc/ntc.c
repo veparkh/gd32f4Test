@@ -5,7 +5,6 @@
 #define VSUPPLY    5.0f
 #define R_SERIES   3300.0f   // R59
 
-// Above this code the 3.3V zener clamps the 5V divider: temperatures below ~+36C (and an open wire) become indistinguishable.
 #define ADC_SATURATED  4000U
 
 typedef struct {

@@ -34,7 +34,6 @@ OF SUCH DAMAGE.
 
 #include "gd32f4xx_it.h"
 #include "main.h"
-#include "systick.h"
 #include "adc.h"
 
 /*!
@@ -120,7 +119,3 @@ void ADC_IRQHandler(void)
 {
     adc_irq_handler();
 }
-
-
-
-

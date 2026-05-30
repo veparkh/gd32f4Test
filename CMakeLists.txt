@@ -12,11 +12,12 @@ set(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/Startup/gd32f450xG_flash.ld)
 
 set(FREERTOS_DIR ${CMAKE_SOURCE_DIR}/FreeRTOS)
 
-# --- Include paths -----------------------------------------------------------
 include_directories(
     ${CMAKE_SOURCE_DIR}/Core
     ${CMAKE_SOURCE_DIR}/App/ntc
     ${CMAKE_SOURCE_DIR}/App/adc
+    ${CMAKE_SOURCE_DIR}/App/can
+    ${CMAKE_SOURCE_DIR}/App/tasks
     ${CMAKE_SOURCE_DIR}/Drivers/CMSIS/Include
     ${CMAKE_SOURCE_DIR}/Drivers/CMSIS/Device/Include
     ${CMAKE_SOURCE_DIR}/Drivers/GD32F4xx_Periph/Include
@@ -25,7 +26,6 @@ include_directories(
     ${FREERTOS_DIR}/Source/portable/GCC/ARM_CM4F
 )
 
-# --- Peripheral drivers ------------------------------------------------------
 set(PERIPH_SRC
     ${CMAKE_SOURCE_DIR}/Drivers/GD32F4xx_Periph/Source/gd32f4xx_rcu.c
     ${CMAKE_SOURCE_DIR}/Drivers/GD32F4xx_Periph/Source/gd32f4xx_gpio.c
@@ -35,7 +35,6 @@ set(PERIPH_SRC
     ${CMAKE_SOURCE_DIR}/Drivers/GD32F4xx_Periph/Source/gd32f4xx_misc.c
 )
 
-# --- FreeRTOS ----------------------------------------------------------------
 set(FREERTOS_SRC
     ${FREERTOS_DIR}/Source/tasks.c
     ${FREERTOS_DIR}/Source/queue.c
@@ -46,19 +45,18 @@ set(FREERTOS_SRC
     ${FREERTOS_DIR}/Source/portable/MemMang/heap_4.c
 )
 
-# --- Core --------------------------------------------------------------------
 set(CORE_SRC
     ${CMAKE_SOURCE_DIR}/Core/main.c
     ${CMAKE_SOURCE_DIR}/Core/system_gd32f4xx.c
     ${CMAKE_SOURCE_DIR}/Core/gd32f4xx_it.c
-    ${CMAKE_SOURCE_DIR}/Core/systick.c
     ${CMAKE_SOURCE_DIR}/Core/syscalls.c
 )
 
-# --- Application -------------------------------------------------------------
 set(APP_SRC
     ${CMAKE_SOURCE_DIR}/App/ntc/ntc.c
     ${CMAKE_SOURCE_DIR}/App/adc/adc.c
+    ${CMAKE_SOURCE_DIR}/App/can/can.c
+    ${CMAKE_SOURCE_DIR}/App/tasks/tasks.c
 )
 
 

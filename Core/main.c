@@ -2,21 +2,18 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
-static void test_task(void *arg)
-{
-    (void)arg;
-    for (;;) {
-        vTaskDelay(pdMS_TO_TICKS(100));
-    }
-}
+#include "adc.h"
+#include "can.h"
+#include "tasks.h"
 
 int main(void)
 {
-    xTaskCreate(test_task, "test", configMINIMAL_STACK_SIZE,
-                NULL, tskIDLE_PRIORITY + 1, NULL);
+    adc_init();
+    can_setup();
+    tasks_create();
 
     vTaskStartScheduler();
-
-    for (;;) {
+    
+    for(;;) {
     }
 }

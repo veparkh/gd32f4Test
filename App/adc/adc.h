@@ -5,10 +5,8 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
-// Two NTC thermistors on PA0 (ADC0_IN0) and PA1 (ADC0_IN1), reading is done through the ADC inserted group
-
-#define ADC_NTC1_RANK   0   // inserted rank for PA0
-#define ADC_NTC2_RANK   1   // inserted rank for PA1
+#define ADC_NTC1_RANK   0   // PA0
+#define ADC_NTC2_RANK   1   // PA1
 
 void adc_init(void);
 void adc_set_notify_task(TaskHandle_t task);

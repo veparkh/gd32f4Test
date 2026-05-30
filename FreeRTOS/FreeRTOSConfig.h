@@ -2,9 +2,8 @@
 #define FREERTOS_CONFIG_H
 
 
-#include "gd32f4xx.h"   /* for SystemCoreClock */
+#include "gd32f4xx.h"
 
-/* --- Scheduler -------------------------------------------------------------*/
 #define configUSE_PREEMPTION                    1
 #define configUSE_TIME_SLICING                  1
 #define configUSE_PORT_OPTIMISED_TASK_SELECTION 1
@@ -16,12 +15,10 @@
 #define configUSE_16_BIT_TICKS                  0
 #define configIDLE_SHOULD_YIELD                 1
 
-/* --- Memory ----------------------------------------------------------------*/
 #define configSUPPORT_STATIC_ALLOCATION         0
 #define configSUPPORT_DYNAMIC_ALLOCATION        1
 #define configTOTAL_HEAP_SIZE                   ( ( size_t ) ( 16 * 1024 ) )
 
-/* --- Hooks / features ------------------------------------------------------*/
 #define configUSE_IDLE_HOOK                     0
 #define configUSE_TICK_HOOK                     0
 #define configUSE_MALLOC_FAILED_HOOK            0
@@ -35,17 +32,14 @@
 #define configTIMER_TASK_STACK_DEPTH            ( configMINIMAL_STACK_SIZE * 2 )
 #define configQUEUE_REGISTRY_SIZE               8
 
-/* --- API inclusion ---------------------------------------------------------*/
 #define INCLUDE_vTaskPrioritySet                1
 #define INCLUDE_uxTaskPriorityGet               1
 #define INCLUDE_vTaskDelete                     1
 #define INCLUDE_vTaskSuspend                    1
-#define INCLUDE_vTaskDelayUntil                 1
+#define INCLUDE_xTaskDelayUntil                 1
 #define INCLUDE_vTaskDelay                      1
 #define INCLUDE_xTaskGetSchedulerState          1
 
-/* --- Cortex-M interrupt priorities -----------------------------------------*/
-/* GD32F450 uses 4 priority bits (16 levels). */
 #define configPRIO_BITS                         4
 #define configLIBRARY_LOWEST_INTERRUPT_PRIORITY        15
 #define configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY   5
@@ -55,12 +49,10 @@
 #define configMAX_SYSCALL_INTERRUPT_PRIORITY \
     ( configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY << (8 - configPRIO_BITS) )
 
-/* --- Map FreeRTOS handlers onto the names used in startup_gd32f450_470.S ----*/
 #define vPortSVCHandler     SVC_Handler
 #define xPortPendSVHandler  PendSV_Handler
 #define xPortSysTickHandler SysTick_Handler
 
-/* Assert (lightweight). */
 #define configASSERT( x ) if( ( x ) == 0 ) { taskDISABLE_INTERRUPTS(); for( ;; ); }
 
 #endif /* FREERTOS_CONFIG_H */
