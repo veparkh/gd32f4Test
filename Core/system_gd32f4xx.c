@@ -58,8 +58,8 @@
 
 #if defined (GD32F450) || defined (GD32F425) || defined (GD32F427)
 //#define __SYSTEM_CLOCK_200M_PLL_IRC16M          (uint32_t)(200000000)
-//#define __SYSTEM_CLOCK_200M_PLL_8M_HXTAL        (uint32_t)(200000000)
-#define __SYSTEM_CLOCK_200M_PLL_25M_HXTAL         (uint32_t)(200000000)
+#define __SYSTEM_CLOCK_200M_PLL_8M_HXTAL        (uint32_t)(200000000)
+//#define __SYSTEM_CLOCK_200M_PLL_25M_HXTAL         (uint32_t)(200000000)
 #endif
 
 #if defined (GD32F470)
