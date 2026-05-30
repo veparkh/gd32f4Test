@@ -107,12 +107,6 @@ void UsageFault_Handler(void)
     \param[out] none
     \retval     none
 */
-void SVC_Handler(void)
-{
-    /* if SVC exception occurs, go to infinite loop */
-    while(1) {
-    }
-}
 
 /*!
     \brief      this function handles DebugMon exception
@@ -127,26 +121,4 @@ void DebugMon_Handler(void)
     }
 }
 
-/*!
-    \brief      this function handles PendSV exception
-    \param[in]  none
-    \param[out] none
-    \retval     none
-*/
-void PendSV_Handler(void)
-{
-    /* if PendSV exception occurs, go to infinite loop */
-    while(1) {
-    }
-}
 
-/*!
-    \brief    this function handles SysTick exception
-    \param[in]  none
-    \param[out] none
-    \retval     none
-*/
-void SysTick_Handler(void)
-{
-    delay_decrement();
-}
