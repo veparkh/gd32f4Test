@@ -35,6 +35,7 @@ OF SUCH DAMAGE.
 #include "gd32f4xx_it.h"
 #include "main.h"
 #include "systick.h"
+#include "adc.h"
 
 /*!
     \brief      this function handles NMI exception
@@ -102,13 +103,6 @@ void UsageFault_Handler(void)
 }
 
 /*!
-    \brief      this function handles SVC exception
-    \param[in]  none
-    \param[out] none
-    \retval     none
-*/
-
-/*!
     \brief      this function handles DebugMon exception
     \param[in]  none
     \param[out] none
@@ -120,5 +114,13 @@ void DebugMon_Handler(void)
     while(1) {
     }
 }
+
+
+void ADC_IRQHandler(void)
+{
+    adc_irq_handler();
+}
+
+
 
 

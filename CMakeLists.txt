@@ -15,6 +15,8 @@ set(FREERTOS_DIR ${CMAKE_SOURCE_DIR}/FreeRTOS)
 # --- Include paths -----------------------------------------------------------
 include_directories(
     ${CMAKE_SOURCE_DIR}/Core
+    ${CMAKE_SOURCE_DIR}/App/ntc
+    ${CMAKE_SOURCE_DIR}/App/adc
     ${CMAKE_SOURCE_DIR}/Drivers/CMSIS/Include
     ${CMAKE_SOURCE_DIR}/Drivers/CMSIS/Device/Include
     ${CMAKE_SOURCE_DIR}/Drivers/GD32F4xx_Periph/Include
@@ -53,12 +55,21 @@ set(CORE_SRC
     ${CMAKE_SOURCE_DIR}/Core/syscalls.c
 )
 
+# --- Application -------------------------------------------------------------
+set(APP_SRC
+    ${CMAKE_SOURCE_DIR}/App/ntc/ntc.c
+    ${CMAKE_SOURCE_DIR}/App/adc/adc.c
+)
+
+
+
 set(STARTUP_SRC
     ${CMAKE_SOURCE_DIR}/Startup/startup_gd32f450_470.S
 )
 
 add_executable(${TARGET}.elf
     ${CORE_SRC}
+    ${APP_SRC}
     ${PERIPH_SRC}
     ${FREERTOS_SRC}
     ${STARTUP_SRC}

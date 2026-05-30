@@ -1,7 +1,6 @@
 #ifndef FREERTOS_CONFIG_H
 #define FREERTOS_CONFIG_H
 
-/* GD32F450 @ 200 MHz, Cortex-M4F. Minimal config for a 2-task + queue app. */
 
 #include "gd32f4xx.h"   /* for SystemCoreClock */
 
