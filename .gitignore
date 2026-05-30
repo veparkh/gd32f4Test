@@ -1,0 +1,26 @@
+# Build output
+/build/
+build/
+cmake-build-*/
+
+# CMake stray files
+CMakeFiles/
+CMakeCache.txt
+
+# Compiled binaries
+*.o
+*.obj
+*.elf
+*.bin
+*.hex
+*.map
+*.d
+
+# Editor / IDE
+.vscode/
+.idea/
+*.user
+
+# OS junk
+Thumbs.db
+.DS_Store
